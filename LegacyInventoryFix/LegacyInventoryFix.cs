@@ -27,10 +27,8 @@ namespace LegacyInventoryFix
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 var codes = new List<CodeInstruction>(instructions);
-                // show all codes
                 for(int i = 0; i < codes.Count; i++)
                 {
-                    // when   ldc.r4 700 -> ldc.r4 1000
                     if (codes[i].opcode == System.Reflection.Emit.OpCodes.Ldc_R4 && (float)codes[i].operand == 700f
                          && codes[i + 1].opcode == System.Reflection.Emit.OpCodes.Ldc_R4 && (float)codes[i + 1].operand == 700f)
                     {
@@ -51,7 +49,6 @@ namespace LegacyInventoryFix
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 var codes = new List<CodeInstruction>(instructions);
-                // show all codes
                 for (int i = 0; i < codes.Count; i++)
                 {
                     if (codes[i].opcode == System.Reflection.Emit.OpCodes.Ldc_R4 && (float)codes[i].operand == 1.2f)
